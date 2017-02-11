@@ -144,6 +144,19 @@ tlsf_decl int tlsf_fls(unsigned int word)
 	return bit - 1;
 }
 
+#elif defined(__clang__)
+
+tlsf_decl int tlsf_ffs(unsigned int word)
+{
+    return __builtin_ffs(word) - 1;
+}
+
+tlsf_decl int tlsf_fls(unsigned int word)
+{
+    const int bit = word ? 32 - __builtin_clz(word) : 0;
+    return bit - 1;
+}
+
 #else
 /* Fall back to generic implementation. */
 
