@@ -227,7 +227,7 @@ enum tlsf_public
 /* Private constants: do not modify. */
 enum tlsf_private
 {
-#if defined (TLSF_64BIT) || defined(__EMSCRIPTEN__)
+#if defined (TLSF_64BIT)
 	/* All allocation sizes and addresses are aligned to 8 bytes. */
 	ALIGN_SIZE_LOG2 = 3,
 #else
