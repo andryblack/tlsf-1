@@ -866,9 +866,9 @@ int tlsf_check(tlsf_t tlsf)
 	{
 		for (j = 0; j < SL_INDEX_COUNT; ++j)
 		{
-			const int fl_map = control->fl_bitmap & (1 << i);
+			const int fl_map = control->fl_bitmap & (1U << i);
 			const int sl_list = control->sl_bitmap[i];
-			const int sl_map = sl_list & (1 << j);
+			const int sl_map = sl_list & (1U << j);
 			const block_header_t* block = control->blocks[i][j];
 
 			/* Check that first- and second-level lists agree. */
